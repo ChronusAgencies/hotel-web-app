@@ -1,0 +1,5 @@
+@mixin regularPhone(){
+    @media screen and (min-width: 500px) {
+        @content
+    }
+}
