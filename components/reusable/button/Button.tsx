@@ -1,9 +1,10 @@
 import { TGeneralProps } from '@/utils/types/types';
 import React from 'react';
+import style from './Button.module.scss';
 
 
 type TButtonProps = TGeneralProps & {
-  onClick : (event : React.MouseEvent<HTMLButtonElement>) => void,
+  onClick? : (event : React.MouseEvent<HTMLButtonElement>) => void,
   btnType : 'submit' | 'reset' | 'button'
 };
 
@@ -11,7 +12,7 @@ type TButtonProps = TGeneralProps & {
 const Button = ({children, classname, btnType, onClick} : TButtonProps) => {
   return (
     <>
-      <button className={classname} type={btnType} onClick={onClick}>
+      <button className={style[classname]} type={btnType} onClick={onClick}>
         {children}
       </button>
     </>

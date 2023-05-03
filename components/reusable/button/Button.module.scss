@@ -1,0 +1,21 @@
+@use '/styles/mixins';
+@use '/styles/moblie';
+@use '/styles/tablet';
+@use '/styles/desktop';
+
+
+.primary-cta{
+    width: fit-content;
+    height: fit-content;
+    padding: .8 1.2rem;
+    background: var(--tertier-color);
+    @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-lg), var(--secondary-color));
+}
+.underlined{
+    width: fit-content;
+    height: fit-content;
+    padding: .8 1rem;
+    background: transparent;
+    @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-lg), var(--tertier-color));
+    text-decoration: underline;
+}

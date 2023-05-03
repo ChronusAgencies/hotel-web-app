@@ -8,11 +8,11 @@ const Layout = ({children} : {children : React.ReactNode}) => {
   return (
     <>
       <Header/>
+      <Sidebar/>
       <main>
-        <Sidebar/>
         {children}
-        <Modal/>
       </main>
+      <Modal/>
       <Footer/>
     </>
   )

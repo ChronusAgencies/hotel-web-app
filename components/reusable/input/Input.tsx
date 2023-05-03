@@ -1,16 +1,15 @@
 import { TGeneralProps } from '@/utils/types/types';
 import React, { HTMLProps } from 'react';
  
-type TInputProps = TGeneralProps & HTMLProps<HTMLInputElement>;
+type TInputProps = TGeneralProps & HTMLProps<HTMLInputElement> &{
+  onChange? : (event : React.ChangeEvent<HTMLInputElement> )  => void
+};
 
 
-const Input = ({classname, children, ...rest} : TInputProps) => {
+const Input = ({classname, onChange, ...rest} : TInputProps) => {
   return (
     <>
-      <div className={classname}>
-        <input {...rest} />
-        {children}
-      </div>
+        <input className={classname} onChange={onChange} {...rest}/>
     </>
   )
 }
