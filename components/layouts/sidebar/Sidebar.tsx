@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Booking from '@/components/module/booking/Booking';
+
 
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
+    <>
+        <Booking/>  
+    </>
   )
 }
 

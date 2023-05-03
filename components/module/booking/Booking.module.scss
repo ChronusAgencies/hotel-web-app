@@ -1,0 +1,92 @@
+@use '/styles/mixins';
+@use '/styles/moblie';
+@use '/styles/tablet';
+@use '/styles/desktop';
+
+.toggle{
+    padding: .8rem 1.2rem;
+    background: var(--tertier-color);
+    position: fixed;
+    top: calc(var(--pos-y) + 1.6rem);
+    right: 0;
+    border-radius: 0 0 1.2rem 1.2rem;
+    z-index: 400;
+
+    p{
+        @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-lg), var(--secondary-color));
+    }
+
+}
+
+.form_container{
+    width: 100%;
+    height: calc(100dvh - 6.4rem);
+    background: var(--secondary-color);
+    position: fixed;
+    top: calc(var(--pos-y) + 1.2rem);
+    z-index: 300;
+    padding: calc(.8rem + var(--pos-y)) 2.4rem 1.2rem 2.4rem;
+    @include mixins.flexDisplay(center, center, column);
+
+    .form{
+        width: 100%;
+        height: 50%;
+        @include mixins.gridDisplay(2, 6, 1.6rem, 1.6rem);
+        place-items: center;
+
+        .input_group{
+            width: 100%;
+            height: 4.9rem;
+            position: relative;
+
+            .input_container{
+                width: 100%;
+                height: 100%;
+                padding: .4rem 4.8rem;
+                background: var(--primary-color);
+                border-radius: 2rem;
+                box-shadow: inset 0 0 15px 0 rgba($color: #000000, $alpha: .5);
+                @include mixins.flexDisplay(space-around, center, row);
+
+                .input{
+                    width: 90%;
+                    height: 100%;
+                    @include mixins.fontOpts(var(--secondary-font-regular), var(--paragraf-lg), var(--secondary-color));
+                }
+            }
+            .input_dropdown{
+                width: 100%;
+                transform: scaleY(0);
+                transition: transform .3s;
+                transform-origin: top;
+                @include mixins.flexDisplay(center, center, column);
+                margin-top: .8rem;
+                position: absolute;
+                z-index: 10;
+
+                &.isDropdownOpen{
+                    transform: scaleY(1);
+                }
+
+                .dropdown_opt{
+                    width: 100%;
+                    padding: .8rem 0;
+                    @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-md), var(--secondary-color));
+                    background-color: var(--tertier-color);
+                    @include mixins.flexDisplay(center, center, row);
+
+                    &:hover{
+                        background: var(--primary-color);
+                    }
+                    &:focus{
+                        background: var(--primary-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#properties{
+    grid-area: 1/1/span 1/span 2;
+}
