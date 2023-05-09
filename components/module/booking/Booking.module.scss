@@ -26,12 +26,12 @@
     top: calc(var(--pos-y) + 1.2rem);
     z-index: 300;
     padding: calc(.8rem + var(--pos-y)) 2.4rem 1.2rem 2.4rem;
-    @include mixins.flexDisplay(center, center, column);
+    @include mixins.flexDisplay(flex-start, center, column);
 
     .form{
         width: 100%;
         height: 50%;
-        @include mixins.gridDisplay(2, 6, 1.6rem, 1.6rem);
+        @include mixins.gridDisplay(2, 7, 2rem, 2rem);
         place-items: center;
 
         .input_group{
@@ -47,11 +47,28 @@
                 border-radius: 2rem;
                 box-shadow: inset 0 0 15px 0 rgba($color: #000000, $alpha: .5);
                 @include mixins.flexDisplay(space-around, center, row);
+                cursor: pointer;
 
                 .input{
                     width: 90%;
                     height: 100%;
-                    @include mixins.fontOpts(var(--secondary-font-regular), var(--paragraf-lg), var(--secondary-color));
+                    @include mixins.fontOpts(var(--secondary-font-regular), var(--paragraf-md), var(--secondary-color));
+                    text-align: center;
+                    @include mixins.flexDisplay(center, center, row);
+                }
+
+                .svg_container{
+                    height: 100%;
+                    @include mixins.flexDisplay(center, center, row);
+
+                    svg{
+                        transform: rotate(0);
+                        transition: transform .6s;
+
+                        &.isShow{
+                            transform: rotate(180deg);
+                        }
+                    }
                 }
             }
             .input_dropdown{
@@ -74,6 +91,7 @@
                     @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-md), var(--secondary-color));
                     background-color: var(--tertier-color);
                     @include mixins.flexDisplay(center, center, row);
+                    cursor: pointer;
 
                     &:hover{
                         background: var(--primary-color);
@@ -88,5 +106,41 @@
 }
 
 #properties{
-    grid-area: 1/1/span 1/span 2;
+    grid-area: 1/1/1/span 2;
+}
+#checkIn{
+    grid-area: 2/1/2/span 2;
+}
+#checkOut{
+    grid-area: 3/1/3/span 2;
+}
+#adultCount{
+    grid-area: 4/1/4/2;
+}
+#childCount{
+    grid-area: 4/2/4/2;
+}
+#refCode{
+    grid-area: 5/1/5/span 2;
+
+    input{
+        text-align: center;
+    }
+}
+#primaryCTA{
+    grid-area: 6/1/6/span 2;
+    margin-top: 1.6rem;
+}
+#resetBtn{
+    grid-area: 7/1/7/span 2;
+}
+#checkIn,
+#checkOut,
+#adultCount,
+#childCount,
+#refCode{
+
+    .input_container{
+        padding: .4rem 1.6rem;
+    }
 }
