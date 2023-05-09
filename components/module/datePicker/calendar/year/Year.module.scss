@@ -1,0 +1,56 @@
+@use '/styles/mixins';
+@use '/styles/moblie';
+@use '/styles/tablet';
+@use '/styles/desktop';
+
+
+.wrapper{
+    position: relative;
+    width: 75%;
+    .input_group{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: var(--primary-color);
+        border: solid 1px var(--tertier-color);
+        border-radius: 2rem;
+        padding: .4rem .8rem;
+        gap: .8rem;
+        @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-lg), var(--secondary-color));
+        position: relative;
+
+        svg{
+            transform: rotate(0);
+            transition: transform .6s;
+            &.isShow{
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .dropdown{
+        position: absolute;
+        width: 100%;
+        margin-top: .8rem;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform .6s;
+
+        &.isShow{
+            transform: scaleY(1);
+        }
+
+        .dropdown_opt{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .8rem;
+            @include mixins.fontOpts(var(--secondary-font-bold), var(--paragraf-lg), var(--secondary-color));
+            background: var(--tertier-color);
+            transition: background .5s;
+
+            &:hover{
+                background: var(--primary-color);
+            }
+        }
+    }
+}

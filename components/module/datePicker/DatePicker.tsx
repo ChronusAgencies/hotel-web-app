@@ -1,24 +1,20 @@
-'use client';
+import Calendar from "./calendar/Calendar";
+import Year from "./calendar/year/Year";
+import Month from "./calendar/month/Month";
+import style from "./DatePicker.module.scss";
 
-import React, { useState } from 'react';
-import Date from './date/Date';
-import Month from './month/Month';
-import Year from './year/Year';
-import Button from '@/components/reusable/button/Button';
-import { IDatePicker } from '@/utils/interfaces/interfaces';
 
 const DatePicker = () => {
 
-  
-
-
   return (
     <>
-      <form>
-        <Date/>
-        <Month/>
-        <Year/>
-      </form>
+      <div className={style.wrapper}>
+        <div className={style.input_group}>
+          <Year/>
+          <Month/>
+        </div>
+        <Calendar/>
+      </div>
     </>
   )
 }
